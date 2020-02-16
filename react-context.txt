@@ -1,0 +1,53 @@
+1. To create a context import createContext from react
+2. initialize a new context like:
+    const ExampleContext = createContext()
+3. Create a ContextProvider like:
+    class ExampleContextProvider extends Component{
+        render(){
+            return(
+
+            )
+        }
+    }
+
+4. Initialize a new state in it
+5. In the return statement pass your new context with a value and provider and then show the child components in it like so:
+    <ExampleContext.Provider value={{...this.state}}>
+        {this.}
+    </ExampleContext.Provider>
+
+6. Wrap those Components where you want to use that specific context
+
+
+// There are different methods to use context in component. The first one can only be used in class components. The second one can be used in both class and functional components and we can use it multiple times
+
+7. To access a context in a class based component import your context and then use this statement before render method:
+    static contextType = ExampleContext
+    render(){
+        console.log(this.context) // not a typo we actually have to use context for accessing it instead of contextType
+        const {isBoolean} = this.context
+    }
+
+8. To access a context in a function based component or to use multiple context in class based components:
+    <ExampleContext.Consumer>{(context) => {
+        const {isBool} = context
+        return (
+
+        )
+    }}
+
+    </ExampleContext.Consumer>
+
+NOTE: Whenever we create a Context we have to also create a provider which is a tag that surrounds whichever components we want to use that context in
+
+
+
+
+
+
+
+
+HOOKS
+
+NOTE: Using Context with Hooks is much cleaner to read and write
+NOTE: Allows us to do additional things inside funct components eg using state inside functional component
